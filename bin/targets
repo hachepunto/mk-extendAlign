@@ -1,0 +1,9 @@
+#!/bin/sh
+
+find -L data/ \
+	-type f \
+	-name "*.fa" \
+| sed -r \
+	-e 's#^data/#results/#' \
+	-e 's#\.fa$#_EA.done#'
+
