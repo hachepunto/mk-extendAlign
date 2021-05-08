@@ -3,6 +3,7 @@
 results/%_EA.done:	data/%.fa
 	set -x
 	mkdir -p `dirname $target`
+	touch $target"_build"
 	extendalign \
 		--query_fasta $prereq \
 		--subject_fasta $SUBJECT \
@@ -12,4 +13,4 @@ results/%_EA.done:	data/%.fa
 		--number_of_hits $NUMBER_OF_HITS \
 		--blastn_strand $BLASTN_STRAND \
 		--blastn_threads $BLASTN_THREADS \
-	&& touch $target
+	&& mv $target"_build" $target
